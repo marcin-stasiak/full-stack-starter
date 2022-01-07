@@ -15,7 +15,7 @@ export class AppService implements OnModuleInit {
   public async onModuleInit(): Promise<void> {
     try {
       this.server = createServer({
-        dev: this.configService.get<string>('environment') !== 'production',
+        dev: this.configService.get<string>('environment') === 'development',
         dir: './src/client',
       });
       await this.server.prepare();
@@ -27,6 +27,4 @@ export class AppService implements OnModuleInit {
   public getNextServer(): NextServer {
     return this.server;
   }
-
-
 }
