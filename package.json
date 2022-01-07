@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist .next",
     "build": "NODE_ENV=production nest build && cd src/client && next build",
     "build:client": "NODE_ENV=production cd src/client && next build",
     "build:server": "NODE_ENV=production nest build",
@@ -26,6 +26,7 @@
     "@nestjs/typeorm": "^8.0.2",
     "apollo-server-express": "^3.6.1",
     "graphql": "^15.8.0",
+    "helmet": "^5.0.1",
     "next": "^12.0.7",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
