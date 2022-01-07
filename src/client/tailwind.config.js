@@ -8,20 +8,7 @@ module.exports = {
     join(__dirname, 'components', '**', '*.{js,ts,jsx,tsx}')
   ],
   darkMode: 'class',
-  theme: {
-    fontFamily: {
-      sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
-      condensed: ['Oswald', ...defaultTheme.fontFamily.sans]
-    },
-    extend: {
-      colors: {
-        dark: colors.zinc['800'],
-        light: colors.zinc['400'],
-        primary: colors.amber['500'],
-        secondary: colors.indigo['800']
-      }
-    }
-  },
+  theme: {},
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
