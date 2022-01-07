@@ -10,6 +10,12 @@ NestJS, TypeORM, NextJS, TailwindCSS
 $ npm install
 ```
 
+## Configuration
+```bash
+# copy and edit .env file
+$ cp .env.dist .env
+```
+
 ## Running the app
 
 ```bash
