@@ -10,4 +10,4 @@ fi
 echo "Install modules..."
 npm install --prefix "$(dirname "$0")"
 echo "Build application..."
-npm run build:server --prefix "$(dirname "$0")"
+npm run build --prefix "$(dirname "$0")"
