@@ -1,0 +1,96 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  id: String!
+  slug: String!
+  title: String!
+}
+
+type Entry {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Tag {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type User {
+  id: String!
+  slug: String!
+  title: String!
+  email: String!
+}
+
+type Query {
+  categories: [Category!]!
+  category(id: Int!): Category!
+  entries: [Entry!]!
+  entry(id: Int!): Entry!
+  tags: [Tag!]!
+  tag(id: Int!): Tag!
+  users: [User!]!
+  user(id: Int!): User!
+}
+
+type Mutation {
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  removeCategory(id: Int!): Category!
+  createEntry(createEntryInput: CreateEntryInput!): Entry!
+  updateEntry(updateEntryInput: UpdateEntryInput!): Entry!
+  removeEntry(id: Int!): Entry!
+  createTag(createTagInput: CreateTagInput!): Tag!
+  updateTag(updateTagInput: UpdateTagInput!): Tag!
+  removeTag(id: Int!): Tag!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+}
+
+input CreateCategoryInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateCategoryInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateEntryInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateEntryInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateTagInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateTagInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}

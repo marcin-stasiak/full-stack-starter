@@ -1,7 +1,9 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Entity } from 'typeorm';
+import { DefaultEndpointEntity } from '../../../utilities/entities/default-endpoint.entity';
+import { ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
-export class Category {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+@Entity('categories')
+export class Category extends DefaultEndpointEntity {
+
 }
