@@ -1,9 +1,9 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Category } from '../../categories/entities/category.entity';
 import { Tag } from '../../tags/entities/tag.entity';
-import { DefaultEndpointEntity } from '../../../utilities/entities/default-endpoint.entity';
+import { DefaultEndpointEntity } from '../../../utilities/default-endpoint.entity';
 
 @ObjectType()
 @Entity('entries')

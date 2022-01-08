@@ -2,28 +2,44 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Category {
+type User {
   id: String!
   slug: String!
   title: String!
-}
-
-type Entry {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  description: String!
+  image: String!
+  email: String!
+  entries: [Entry!]
 }
 
 type Tag {
   id: String!
   slug: String!
   title: String!
+  description: String!
+  image: String!
+  entries: [Entry!]
 }
 
-type User {
+type Entry {
   id: String!
   slug: String!
   title: String!
-  email: String!
+  description: String!
+  image: String!
+  content: String!
+  author: User!
+  categories: [Category!]
+  tags: [Tag!]
+}
+
+type Category {
+  id: String!
+  slug: String!
+  title: String!
+  description: String!
+  image: String!
+  entries: [Entry!]
 }
 
 type Query {
@@ -86,12 +102,18 @@ input UpdateTagInput {
 }
 
 input CreateUserInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  slug: String
+  title: String!
+  description: String!
+  image: String
+  email: String!
 }
 
 input UpdateUserInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  slug: String
+  title: String
+  description: String
+  image: String
+  email: String
+  id: String!
 }

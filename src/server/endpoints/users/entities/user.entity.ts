@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { DefaultEndpointEntity } from '../../../utilities/entities/default-endpoint.entity';
+import { DefaultEndpointEntity } from '../../../utilities/default-endpoint.entity';
 import { Entry } from '../../entries/entities/entry.entity';
 
 @ObjectType()
