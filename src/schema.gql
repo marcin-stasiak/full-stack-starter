@@ -14,8 +14,9 @@ type Entry {
 }
 
 type Tag {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  id: String!
+  slug: String!
+  title: String!
 }
 
 type User {

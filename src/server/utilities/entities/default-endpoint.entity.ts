@@ -1,7 +1,8 @@
-import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
+@Entity()
 export class DefaultEndpointEntity extends BaseEntity {
   @Field(() => String)
   @PrimaryGeneratedColumn('uuid')
@@ -14,4 +15,12 @@ export class DefaultEndpointEntity extends BaseEntity {
   @Field(() => String)
   @Column({ length: 254 })
   public title: string;
+
+  @Field(() => String)
+  @Column({ length: 254 })
+  public description: string;
+
+  @Field(() => String)
+  @Column({ length: 254 })
+  public image: string;
 }

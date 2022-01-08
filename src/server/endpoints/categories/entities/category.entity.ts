@@ -4,6 +4,4 @@ import { ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 @Entity('categories')
-export class Category extends DefaultEndpointEntity {
-
-}
+export class Category extends DefaultEndpointEntity {}

@@ -1,7 +1,7 @@
-import {Controller, Get, Next, Req, Res} from '@nestjs/common';
+import { Controller, Get, Next, Req, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request, Response } from 'express';
-import {parse} from "url";
+import { parse } from 'url';
 
 @Controller()
 export class AppController {
