@@ -2,15 +2,15 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { join } from 'path';
 
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import appConfig from './configs/app.config';
 import authConfig from './configs/auth.config';
 import databaseConfig from './configs/database.config';
 import serverConfig from './configs/server.config';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CategoriesModule } from './endpoints/categories/categories.module';
 import { EntriesModule } from './endpoints/entries/entries.module';
 import { TagsModule } from './endpoints/tags/tags.module';

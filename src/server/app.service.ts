@@ -1,7 +1,8 @@
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { NextServer } from 'next/dist/server/next';
+
 import createServer from 'next';
+import { NextServer } from 'next/dist/server/next';
 
 @Injectable()
 export class AppService implements OnModuleInit {

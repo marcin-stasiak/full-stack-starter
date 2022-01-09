@@ -1,9 +1,9 @@
-import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { EntriesService } from './entries.service';
-import { Entry } from './entities/entry.entity';
 import { CreateEntryInput } from './dto/create-entry.input';
 import { UpdateEntryInput } from './dto/update-entry.input';
+import { Entry } from './entities/entry.entity';
+import { EntriesService } from './entries.service';
 
 @Resolver(() => Entry)
 export class EntriesResolver {

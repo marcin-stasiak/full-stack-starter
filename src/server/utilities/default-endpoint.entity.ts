@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Field, ObjectType } from '@nestjs/graphql';
+
+import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 export class DefaultEndpointEntity extends BaseEntity {

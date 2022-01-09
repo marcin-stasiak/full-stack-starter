@@ -1,6 +1,8 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { DefaultEndpointEntity } from '../../../utilities/default-endpoint.entity';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
+
 import { Entity, ManyToMany } from 'typeorm';
+
+import { DefaultEndpointEntity } from '../../../utilities/default-endpoint.entity';
 import { Entry } from '../../entries/entities/entry.entity';
 
 @ObjectType()

@@ -1,4 +1,5 @@
-import { InputType, Field, PartialType } from '@nestjs/graphql';
+import { Field, InputType, PartialType } from '@nestjs/graphql';
+
 import { IsUUID } from 'class-validator';
 
 import { CreateEntryInput } from './create-entry.input';
