@@ -44,61 +44,75 @@ type Category {
 
 type Query {
   categories: [Category!]!
-  category(id: Int!): Category!
+  category(id: String!): Category!
   entries: [Entry!]!
-  entry(id: Int!): Entry!
+  entry(id: String!): Entry!
   tags: [Tag!]!
-  tag(id: Int!): Tag!
+  tag(id: String!): Tag!
   users: [User!]!
-  user(id: Int!): User!
+  user(id: String!): User!
 }
 
 type Mutation {
   createCategory(createCategoryInput: CreateCategoryInput!): Category!
   updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
-  removeCategory(id: Int!): Category!
+  removeCategory(id: String!): Category!
   createEntry(createEntryInput: CreateEntryInput!): Entry!
   updateEntry(updateEntryInput: UpdateEntryInput!): Entry!
-  removeEntry(id: Int!): Entry!
+  removeEntry(id: String!): Entry!
   createTag(createTagInput: CreateTagInput!): Tag!
   updateTag(updateTagInput: UpdateTagInput!): Tag!
-  removeTag(id: Int!): Tag!
+  removeTag(id: String!): Tag!
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
-  removeUser(id: Int!): User!
+  removeUser(id: String!): User!
 }
 
 input CreateCategoryInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  slug: String
+  title: String!
+  description: String!
+  image: String
 }
 
 input UpdateCategoryInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  slug: String
+  title: String
+  description: String
+  image: String
+  id: String!
 }
 
 input CreateEntryInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  slug: String
+  title: String!
+  description: String!
+  image: String
+  content: String!
 }
 
 input UpdateEntryInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  slug: String
+  title: String
+  description: String
+  image: String
+  content: String
+  id: String!
 }
 
 input CreateTagInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  slug: String
+  title: String!
+  description: String!
+  image: String
 }
 
 input UpdateTagInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  slug: String
+  title: String
+  description: String
+  image: String
+  id: String!
 }
 
 input CreateUserInput {

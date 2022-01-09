@@ -1,4 +1,5 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
+
 import { EntriesService } from './entries.service';
 import { Entry } from './entities/entry.entity';
 import { CreateEntryInput } from './dto/create-entry.input';
@@ -19,7 +20,7 @@ export class EntriesResolver {
   }
 
   @Query(() => Entry, { name: 'entry' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args('id', { type: () => String }) id: string) {
     return this.entriesService.findOne(id);
   }
 
@@ -29,7 +30,7 @@ export class EntriesResolver {
   }
 
   @Mutation(() => Entry)
-  removeEntry(@Args('id', { type: () => Int }) id: number) {
+  removeEntry(@Args('id', { type: () => String }) id: string) {
     return this.entriesService.remove(id);
   }
 }

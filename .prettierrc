@@ -1,5 +1,6 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
-  "printWidth": 120
+  "printWidth": 120,
+  "importOrder": ["^@nestjs/(.*)$", "^next$", "^next/(.*)$", "<THIRD_PARTY_MODULES>", "^[./]"]
 }

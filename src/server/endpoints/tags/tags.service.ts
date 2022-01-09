@@ -12,15 +12,15 @@ export class TagsService {
     return `This action returns all tags`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} tag`;
   }
 
-  update(id: number, updateTagInput: UpdateTagInput) {
+  update(id: string, updateTagInput: UpdateTagInput) {
     return `This action updates a #${id} tag`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} tag`;
   }
 }

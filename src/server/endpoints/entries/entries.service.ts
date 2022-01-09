@@ -12,15 +12,15 @@ export class EntriesService {
     return `This action returns all entries`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} entry`;
   }
 
-  update(id: number, updateEntryInput: UpdateEntryInput) {
+  update(id: string, updateEntryInput: UpdateEntryInput) {
     return `This action updates a #${id} entry`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} entry`;
   }
 }

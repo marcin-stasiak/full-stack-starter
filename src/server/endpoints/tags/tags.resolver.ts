@@ -1,4 +1,5 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+
 import { TagsService } from './tags.service';
 import { Tag } from './entities/tag.entity';
 import { CreateTagInput } from './dto/create-tag.input';
@@ -19,7 +20,7 @@ export class TagsResolver {
   }
 
   @Query(() => Tag, { name: 'tag' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args('id', { type: () => String }) id: string) {
     return this.tagsService.findOne(id);
   }
 
@@ -29,7 +30,7 @@ export class TagsResolver {
   }
 
   @Mutation(() => Tag)
-  removeTag(@Args('id', { type: () => Int }) id: number) {
+  removeTag(@Args('id', { type: () => String }) id: string) {
     return this.tagsService.remove(id);
   }
 }
