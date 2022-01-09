@@ -26,7 +26,7 @@ export class EntriesResolver {
 
   @Mutation(() => Entry)
   updateEntry(@Args('updateEntryInput') updateEntryInput: UpdateEntryInput) {
-    return this.entriesService.update(updateEntryInput.id, updateEntryInput);
+    return this.entriesService.update(updateEntryInput);
   }
 
   @Mutation(() => Entry)

@@ -15,6 +15,7 @@ import { CategoriesModule } from './endpoints/categories/categories.module';
 import { EntriesModule } from './endpoints/entries/entries.module';
 import { TagsModule } from './endpoints/tags/tags.module';
 import { UsersModule } from './endpoints/users/users.module';
+import { AuthModule } from './utilities/auth/auth.module';
 
 @Module({
   imports: [
@@ -50,6 +51,7 @@ import { UsersModule } from './endpoints/users/users.module';
     EntriesModule,
     TagsModule,
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

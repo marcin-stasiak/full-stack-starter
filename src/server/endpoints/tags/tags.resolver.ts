@@ -1,4 +1,4 @@
-import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { CreateTagInput } from './dto/create-tag.input';
 import { UpdateTagInput } from './dto/update-tag.input';
@@ -26,7 +26,7 @@ export class TagsResolver {
 
   @Mutation(() => Tag)
   updateTag(@Args('updateTagInput') updateTagInput: UpdateTagInput) {
-    return this.tagsService.update(updateTagInput.id, updateTagInput);
+    return this.tagsService.update(updateTagInput);
   }
 
   @Mutation(() => Tag)

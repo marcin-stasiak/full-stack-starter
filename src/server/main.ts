@@ -10,12 +10,21 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  app.useGlobalPipes(
-    new ValidationPipe({
-      disableErrorMessages: !(configService.get<string>('environment') === 'development'),
-    }),
-  );
-  app.use(helmet());
+  // app.useGlobalPipes(
+  //   new ValidationPipe({
+  //     disableErrorMessages: !(configService.get<string>('environment') === 'development'),
+  //   }),
+  // );
+
+  // app.use(
+  //   helmet({
+  //     contentSecurityPolicy: {
+  //       directives: {
+  //         'style-src': ['self', 'fonts.googleapis.com'],
+  //       },
+  //     },
+  //   }),
+  // );
 
   await app.listen(configService.get<number>('port'));
 }

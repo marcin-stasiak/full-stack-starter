@@ -1,27 +1,40 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+
+import { Repository } from 'typeorm';
 
 import { CreateEntryInput } from './dto/create-entry.input';
 import { UpdateEntryInput } from './dto/update-entry.input';
+import { Entry } from './entities/entry.entity';
 
 @Injectable()
 export class EntriesService {
-  create(createEntryInput: CreateEntryInput) {
-    return 'This action adds a new entry';
+  constructor(
+    @InjectRepository(Entry)
+    private readonly entryRepository: Repository<Entry>,
+  ) {}
+
+  public async create(createEntryInput: CreateEntryInput): Promise<Entry> {
+    return await this.entryRepository.save(createEntryInput);
   }
 
-  findAll() {
-    return `This action returns all entries`;
+  public async findAll(): Promise<Entry[]> {
+    return await this.entryRepository.find();
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} entry`;
+  public async findOne(id: string): Promise<Entry> {
+    return await this.entryRepository.findOne(id);
   }
 
-  update(id: string, updateEntryInput: UpdateEntryInput) {
-    return `This action updates a #${id} entry`;
+  public async update(updateEntryInput: UpdateEntryInput) {
+    const found = await this.entryRepository.findOne(updateEntryInput.id);
+    return await this.entryRepository.save({ ...found, ...updateEntryInput });
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} entry`;
+  public async remove(id: string): Promise<Entry> {
+    const found = await this.entryRepository.findOne(id);
+    if (found) {
+      return await this.entryRepository.remove(found);
+    }
   }
 }

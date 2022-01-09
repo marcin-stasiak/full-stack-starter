@@ -13,8 +13,8 @@ export default class ApplicationDocument extends Document {
           />
         </Head>
         <body className="min-h-screen">
-        <Main />
-        <NextScript />
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );

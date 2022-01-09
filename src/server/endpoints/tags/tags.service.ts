@@ -1,27 +1,40 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+
+import { Repository } from 'typeorm';
 
 import { CreateTagInput } from './dto/create-tag.input';
 import { UpdateTagInput } from './dto/update-tag.input';
+import { Tag } from './entities/tag.entity';
 
 @Injectable()
 export class TagsService {
-  create(createTagInput: CreateTagInput) {
-    return 'This action adds a new tag';
+  constructor(
+    @InjectRepository(Tag)
+    private readonly tagRepository: Repository<Tag>,
+  ) {}
+
+  public async create(createTagInput: CreateTagInput): Promise<Tag> {
+    return await this.tagRepository.save(createTagInput);
   }
 
-  findAll() {
-    return `This action returns all tags`;
+  public async findAll(): Promise<Tag[]> {
+    return await this.tagRepository.find();
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} tag`;
+  public async findOne(id: string): Promise<Tag> {
+    return await this.tagRepository.findOne(id);
   }
 
-  update(id: string, updateTagInput: UpdateTagInput) {
-    return `This action updates a #${id} tag`;
+  public async update(updateTagInput: UpdateTagInput) {
+    const found = await this.tagRepository.findOne(updateTagInput.id);
+    return await this.tagRepository.save({ ...found, ...updateTagInput });
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} tag`;
+  public async remove(id: string): Promise<Tag> {
+    const found = await this.tagRepository.findOne(id);
+    if (found) {
+      return await this.tagRepository.remove(found);
+    }
   }
 }

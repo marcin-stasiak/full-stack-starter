@@ -5,7 +5,7 @@ const Home: NextPage = () => {
     <>
       <h1>Homepage</h1>
     </>
-  )
+  );
 };
 
 export default Home;
