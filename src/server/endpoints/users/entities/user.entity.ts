@@ -1,6 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { Column, Entity, OneToMany } from 'typeorm';
+import { AfterLoad, BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
 
 import * as bcrypt from 'bcrypt';
 
@@ -32,4 +32,14 @@ export class User extends DefaultEndpointEntity {
   @Field(() => [Entry], { nullable: true })
   @OneToMany(() => Entry, (entry) => entry.author)
   public entries: Entry[];
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  async hashPassword() {
+    if (this.password) {
+      console.log(this.password);
+      this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(12));
+      console.log(this.password);
+    }
+  }
 }

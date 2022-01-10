@@ -21,7 +21,7 @@ export class AuthService {
     return this.usersService.create(createUserInput);
   }
 
-  public async validateUser(username: string, pass: string): Promise<any> {}
+  public async validateUser(email: string, pass: string): Promise<any> {}
 
   private async createToken(user: User): Promise<any> {
     const accessToken = this.jwtService.sign(user);

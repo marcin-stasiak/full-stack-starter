@@ -2,8 +2,8 @@ import { Field, InputType, Int, PartialType } from '@nestjs/graphql';
 
 import { IsEnum, IsUUID } from 'class-validator';
 
-import { CreateUserInput } from './create-user.input';
 import { UserRole } from '../entities/user.entity';
+import { CreateUserInput } from './create-user.input';
 
 @InputType()
 export class UpdateUserInput extends PartialType(CreateUserInput) {
