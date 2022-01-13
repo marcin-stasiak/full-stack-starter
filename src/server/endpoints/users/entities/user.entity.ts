@@ -1,6 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { AfterLoad, BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
 
 import * as bcrypt from 'bcrypt';
 
@@ -22,7 +22,7 @@ export class User extends DefaultEndpointEntity {
   public email: string;
 
   @Field(() => String)
-  @Column({ type: 'bytea', length: 60, select: false })
+  @Column({ type: 'bytea', select: false })
   public password: string;
 
   @Field(() => String)

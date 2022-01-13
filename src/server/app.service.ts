@@ -9,7 +9,7 @@ export class AppService implements OnModuleInit {
   private server: NextServer;
   private readonly logger: Logger;
 
-  constructor(private configService: ConfigService) {
+  constructor(private readonly configService: ConfigService) {
     this.logger = new Logger(AppService.name);
   }
 
