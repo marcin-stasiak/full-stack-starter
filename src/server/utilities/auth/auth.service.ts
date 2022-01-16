@@ -9,22 +9,4 @@ import { LoginInput } from './dto/login.input';
 @Injectable()
 export class AuthService {
   constructor(private readonly usersService: UsersService, private readonly jwtService: JwtService) {}
-
-  public async login(loginInput: LoginInput): Promise<any> {
-    const found = this.usersService.findOneByEmail(loginInput.email);
-
-    if (found) {
-    }
-  }
-
-  public async register(createUserInput: CreateUserInput): Promise<User> {
-    return this.usersService.create(createUserInput);
-  }
-
-  public async validateUser(email: string, pass: string): Promise<any> {}
-
-  private async createToken(user: User): Promise<any> {
-    const accessToken = this.jwtService.sign(user);
-    console.log(accessToken);
-  }
 }
