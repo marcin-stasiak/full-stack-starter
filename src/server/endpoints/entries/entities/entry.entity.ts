@@ -20,11 +20,11 @@ export class Entry extends DefaultEndpointEntity {
 
   @Field(() => [Category], { nullable: true })
   @ManyToMany(() => Category, (category) => category.entries)
-  @JoinTable({ name: 'category_id' })
+  @JoinTable({ name: 'entries_categories' })
   public categories: Category[];
 
   @Field(() => [Tag], { nullable: true })
   @ManyToMany(() => Tag, (tag) => tag.entries)
-  @JoinTable({ name: 'tag_id' })
+  @JoinTable({ name: 'entries_tags' })
   public tags: Tag[];
 }
