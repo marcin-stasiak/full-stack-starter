@@ -4,7 +4,7 @@ import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
 
 import * as bcrypt from 'bcrypt';
 
-import { DefaultEndpointEntity } from '../../../utilities/default-endpoint.entity';
+import { DefaultEndpointEntity } from '../../../utilities/entities/default-endpoint.entity';
 import { Entry } from '../../entries/entities/entry.entity';
 
 export enum UserRole {

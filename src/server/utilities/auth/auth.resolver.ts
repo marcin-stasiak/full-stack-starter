@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
 
-  public register(createUserInput: CreateUserInput) {
-    return this.authService.register(createUserInput);
-  }
+  // public register(createUserInput: CreateUserInput) {
+  //   return this.authService.register(createUserInput);
+  // }
 }
