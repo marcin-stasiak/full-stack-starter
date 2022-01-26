@@ -28,3 +28,7 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+## Stay in touch
+
+[Marcin Stasiak](https://marcinstasiak.pl/)

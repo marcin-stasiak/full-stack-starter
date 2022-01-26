@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Starter",
   "author": "Marcin Stasiak",
-  "private": true,
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist .next",
