@@ -3,9 +3,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
 
+import { Category } from './entities/category.entity';
 import { CreateCategoryInput } from './interfaces/create-category.input';
 import { UpdateCategoryInput } from './interfaces/update-category.input';
-import { Category } from './entities/category.entity';
 
 @Injectable()
 export class CategoriesService {

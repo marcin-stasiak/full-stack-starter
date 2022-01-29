@@ -3,9 +3,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
 
+import { Tag } from './entities/tag.entity';
 import { CreateTagInput } from './interfaces/create-tag.input';
 import { UpdateTagInput } from './interfaces/update-tag.input';
-import { Tag } from './entities/tag.entity';
 
 @Injectable()
 export class TagsService {

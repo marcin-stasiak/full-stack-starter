@@ -1,8 +1,8 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
+import { Tag } from './entities/tag.entity';
 import { CreateTagInput } from './interfaces/create-tag.input';
 import { UpdateTagInput } from './interfaces/update-tag.input';
-import { Tag } from './entities/tag.entity';
 import { TagsService } from './tags.service';
 
 @Resolver(() => Tag)

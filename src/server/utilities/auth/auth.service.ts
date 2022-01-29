@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
-import { CreateUserInput } from '../../endpoints/users/interfaces/create-user.input';
 import { User } from '../../endpoints/users/entities/user.entity';
+import { CreateUserInput } from '../../endpoints/users/interfaces/create-user.input';
 import { UsersService } from '../../endpoints/users/users.service';
 import { LoginInput } from './interfaces/login.input';
 

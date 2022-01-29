@@ -3,9 +3,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
 
+import { User } from './entities/user.entity';
 import { CreateUserInput } from './interfaces/create-user.input';
 import { UpdateUserInput } from './interfaces/update-user.input';
-import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {

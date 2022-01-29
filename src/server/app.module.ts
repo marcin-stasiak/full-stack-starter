@@ -40,7 +40,7 @@ import { AuthModule } from './utilities/auth/auth.module';
         database: configService.get<string>('database.name'),
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
-        entities: [join(__dirname, '**', '*.entity{.ts,.js}')],
+        entities: [join(__dirname, '**', '*.entity.{ts,js}')],
         autoLoadEntities: true,
         synchronize: true,
         logging: configService.get<string>('environment') === 'development',
