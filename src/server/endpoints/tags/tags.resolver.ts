@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { CreateTagInput } from './dto/create-tag.input';
-import { UpdateTagInput } from './dto/update-tag.input';
+import { CreateTagInput } from './interfaces/create-tag.input';
+import { UpdateTagInput } from './interfaces/update-tag.input';
 import { Tag } from './entities/tag.entity';
 import { TagsService } from './tags.service';
 

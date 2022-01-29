@@ -2,8 +2,8 @@ import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { JwtGuard } from '../../utilities/guards/jwt.guard';
-import { CreateUserInput } from './dto/create-user.input';
-import { UpdateUserInput } from './dto/update-user.input';
+import { CreateUserInput } from './interfaces/create-user.input';
+import { UpdateUserInput } from './interfaces/update-user.input';
 import { User } from './entities/user.entity';
 import { UsersService } from './users.service';
 

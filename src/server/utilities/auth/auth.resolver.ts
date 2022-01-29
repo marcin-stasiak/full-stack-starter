@@ -1,4 +1,4 @@
-import { CreateUserInput } from '../../endpoints/users/dto/create-user.input';
+import { CreateUserInput } from '../../endpoints/users/interfaces/create-user.input';
 import { AuthService } from './auth.service';
 
 export class AuthResolver {
