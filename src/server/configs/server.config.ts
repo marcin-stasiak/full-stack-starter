@@ -1,4 +1,4 @@
 export default () => ({
-  environment: process.env.NODE_ENV || 'development',
+  development: process.env.NODE_ENV !== 'production' || true,
   port: Number.parseInt(process.env.PORT, 10) || 3000,
 });
