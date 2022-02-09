@@ -5,12 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { join } from 'path';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import appConfig from './configs/app.config';
 import authConfig from './configs/auth.config';
 import databaseConfig from './configs/database.config';
 import serverConfig from './configs/server.config';
+
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { CategoriesModule } from './endpoints/categories/categories.module';
 import { EntriesModule } from './endpoints/entries/entries.module';
 import { TagsModule } from './endpoints/tags/tags.module';
@@ -37,7 +38,7 @@ import { AuthModule } from './utilities/auth/auth.module';
         type: 'postgres',
         host: configService.get<string>('database.host'),
         port: configService.get<number>('database.port'),
-        database: configService.get<string>('database.name'),
+        database: configService.qget<string>('database.name'),
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         entities: [join(__dirname, '**', '*.entity.{ts,js}')],
