@@ -38,7 +38,7 @@ import { AuthModule } from './utilities/auth/auth.module';
         type: 'postgres',
         host: configService.get<string>('database.host'),
         port: configService.get<number>('database.port'),
-        database: configService.qget<string>('database.name'),
+        database: configService.get<string>('database.name'),
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         entities: [join(__dirname, '**', '*.entity.{ts,js}')],
