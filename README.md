@@ -1,4 +1,4 @@
-# Starter
+# Full Stack Starter
 
 ## Description
 
