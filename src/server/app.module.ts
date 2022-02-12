@@ -1,3 +1,4 @@
+import { ApolloDriver } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -24,6 +25,7 @@ import { AuthModule } from './utilities/auth/auth.module';
       load: [appConfig, authConfig, databaseConfig, serverConfig],
     }),
     GraphQLModule.forRootAsync({
+      driver: ApolloDriver,
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         autoSchemaFile: 'src/schema.gql',
