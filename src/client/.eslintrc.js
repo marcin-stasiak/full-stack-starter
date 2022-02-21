@@ -8,7 +8,6 @@ module.exports = {
   extends: [
     'plugin:@next/next/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
   ],
   root: true,
   env: {

@@ -1,11 +1,9 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
-const endpointUrl = new URL('/graphql', 'http://localhost:3000/');
+const endpointUrl = new URL('/graphql', process.env.NEXT_PUBLIC_URI_ORIGIN);
 
 const client = new ApolloClient({
-  link: createHttpLink({
-    uri: endpointUrl.toString(),
-  }),
+  uri: endpointUrl.toString(),
   cache: new InMemoryCache(),
 });
 
