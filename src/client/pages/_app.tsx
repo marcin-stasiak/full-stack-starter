@@ -1,6 +1,5 @@
 import Layout from '../components/layout';
 import '../stylesheets/globals.css';
-import 'tw-elements';
 import client from '../utilities/client';
 import { ApolloProvider } from '@apollo/client';
 import type { AppProps } from 'next/app';

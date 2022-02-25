@@ -12,6 +12,7 @@ import databaseConfig from './configs/database.config';
 import serverConfig from './configs/server.config';
 
 import { AppController } from './app.controller';
+import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 import { CategoriesModule } from './endpoints/categories/categories.module';
 import { EntriesModule } from './endpoints/entries/entries.module';
@@ -57,6 +58,6 @@ import { AuthModule } from './utilities/auth/auth.module';
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppResolver, AppService],
 })
 export class AppModule {}
