@@ -8,4 +8,4 @@ const User: NextPage = () => {
   )
 };
 
-export default Entry;
+export default User;
