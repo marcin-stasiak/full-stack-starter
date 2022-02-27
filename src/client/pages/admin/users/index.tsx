@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 
-const Entry: NextPage = () => {
+const AdminUsers: NextPage = () => {
   return (
     <>
       <h1>User</h1>
@@ -8,4 +8,4 @@ const Entry: NextPage = () => {
   );
 };
 
-export default Entry;
+export default AdminUsers;
