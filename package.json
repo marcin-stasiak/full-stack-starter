@@ -13,7 +13,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node app.js",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.{ts,gql}\"",
     "lint": "eslint \"{src}/**/*.ts\" --fix"
   },
   "dependencies": {
