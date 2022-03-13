@@ -1,0 +1,5 @@
+mutation updateTag($updateTagInput: UpdateTagInput!) {
+  updateTag(updateTagInput: $updateTagInput) {
+    id
+  }
+}

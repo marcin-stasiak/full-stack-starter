@@ -20,8 +20,8 @@ export class EntriesResolver {
   }
 
   @Query(() => Entry, { name: 'entry' })
-  findOne(@Args('id', { type: () => String }) id: string) {
-    return this.entriesService.findOne(id);
+  findOne(@Args('slug', { type: () => String }) slug: string) {
+    return this.entriesService.findOneBySlug(slug);
   }
 
   @Mutation(() => Entry)

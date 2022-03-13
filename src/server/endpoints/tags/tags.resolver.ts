@@ -10,27 +10,27 @@ export class TagsResolver {
   constructor(private readonly tagsService: TagsService) {}
 
   @Mutation(() => Tag)
-  createTag(@Args('createTagInput') createTagInput: CreateTagInput) {
+  public createTag(@Args('createTagInput') createTagInput: CreateTagInput) {
     return this.tagsService.create(createTagInput);
   }
 
   @Query(() => [Tag], { name: 'tags' })
-  findAll() {
+  public findAll() {
     return this.tagsService.findAll();
   }
 
   @Query(() => Tag, { name: 'tag' })
-  findOne(@Args('id', { type: () => String }) id: string) {
-    return this.tagsService.findOne(id);
+  public findOne(@Args('slug', { type: () => String }) slug: string) {
+    return this.tagsService.findOneBySlug(slug);
   }
 
   @Mutation(() => Tag)
-  updateTag(@Args('updateTagInput') updateTagInput: UpdateTagInput) {
+  public updateTag(@Args('updateTagInput') updateTagInput: UpdateTagInput) {
     return this.tagsService.update(updateTagInput);
   }
 
   @Mutation(() => Tag)
-  removeTag(@Args('id', { type: () => String }) id: string) {
+  public removeTag(@Args('id', { type: () => String }) id: string) {
     return this.tagsService.remove(id);
   }
 }

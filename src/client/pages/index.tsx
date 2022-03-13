@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
+import client from '../utilities/client';
+import GET_ENTRIES from '../utilities/graphql/get-entries.gql';
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ entries }) => {
   return (
     <>
       <h1>Homepage</h1>
@@ -10,5 +12,15 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const { data } = await client.query(GET_ENTRIES);
+
+  return {
+    props : {
+      entries: data.entries
+    }
+  }
+}
 
 export default Home;

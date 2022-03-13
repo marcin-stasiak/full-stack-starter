@@ -1,0 +1,9 @@
+query {
+  entries {
+    id
+    slug
+    title
+    description
+    image
+  }
+}

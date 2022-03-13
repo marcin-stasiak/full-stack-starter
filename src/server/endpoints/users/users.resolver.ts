@@ -13,27 +13,27 @@ export class UsersResolver {
 
   @UseGuards(JwtGuard)
   @Mutation(() => User)
-  createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
+  public createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
     return this.usersService.create(createUserInput);
   }
 
   @Query(() => [User], { name: 'users' })
-  findAll() {
+  public findAll() {
     return this.usersService.findAll();
   }
 
   @Query(() => User, { name: 'user' })
-  findOne(@Args('slug', { type: () => String }) slug: string) {
+  public findOne(@Args('slug', { type: () => String }) slug: string) {
     return this.usersService.findOneBySlug(slug);
   }
 
   @Mutation(() => User)
-  updateUser(@Args('updateUserInput') updateUserInput: UpdateUserInput) {
+  public updateUser(@Args('updateUserInput') updateUserInput: UpdateUserInput) {
     return this.usersService.update(updateUserInput);
   }
 
   @Mutation(() => User)
-  removeUser(@Args('id', { type: () => String }) id: string) {
+  public removeUser(@Args('id', { type: () => String }) id: string) {
     return this.usersService.remove(id);
   }
 }

@@ -1,0 +1,9 @@
+query entry($slug: String!) {
+  entry(slug: $slug) {
+    id
+    slug
+    title
+    description
+    image
+  }
+}

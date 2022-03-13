@@ -1,0 +1,9 @@
+query {
+  tags {
+    id
+    slug
+    title
+    description
+    image
+  }
+}

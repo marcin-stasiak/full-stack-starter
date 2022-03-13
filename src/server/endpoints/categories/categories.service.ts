@@ -22,8 +22,12 @@ export class CategoriesService {
     return await this.categoryRepository.find();
   }
 
-  public async findOne(id: string): Promise<Category> {
-    return await this.categoryRepository.findOne(id);
+  public async findOneById(id: string): Promise<Category> {
+    return await this.categoryRepository.findOne({ where: { id: id } });
+  }
+
+  public async findOneBySlug(slug: string): Promise<Category> {
+    return await this.categoryRepository.findOne({ where: { slug: slug } });
   }
 
   public async update(updateCategoryInput: UpdateCategoryInput) {

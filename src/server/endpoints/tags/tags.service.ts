@@ -22,8 +22,12 @@ export class TagsService {
     return await this.tagRepository.find();
   }
 
-  public async findOne(id: string): Promise<Tag> {
-    return await this.tagRepository.findOne(id);
+  public async findOneById(id: string): Promise<Tag> {
+    return await this.tagRepository.findOne({ where: { id: id } });
+  }
+
+  public async findOneBySlug(slug: string): Promise<Tag> {
+    return await this.tagRepository.findOne({ where: { slug: slug } });
   }
 
   public async update(updateTagInput: UpdateTagInput) {

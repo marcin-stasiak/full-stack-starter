@@ -22,8 +22,12 @@ export class EntriesService {
     return await this.entryRepository.find();
   }
 
-  public async findOne(id: string): Promise<Entry> {
+  public async findOneById(id: string): Promise<Entry> {
     return await this.entryRepository.findOne(id);
+  }
+
+  public async findOneBySlug(slug: string): Promise<Entry> {
+    return await this.entryRepository.findOne({ where: { slug: slug } });
   }
 
   public async update(updateEntryInput: UpdateEntryInput) {

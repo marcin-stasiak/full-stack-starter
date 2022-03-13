@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AppConfigType {
+  language: String!
+  name: String!
+  description: String!
+}
+
 type Tag {
   id: String!
   slug: String!
@@ -45,12 +51,13 @@ type Category {
 }
 
 type Query {
+  config: AppConfigType!
   categories: [Category!]!
-  category(id: String!): Category!
+  category(slug: String!): Category!
   entries: [Entry!]!
-  entry(id: String!): Entry!
+  entry(slug: String!): Entry!
   tags: [Tag!]!
-  tag(id: String!): Tag!
+  tag(slug: String!): Tag!
   users: [User!]!
   user(slug: String!): User!
 }

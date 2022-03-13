@@ -1,0 +1,9 @@
+query user($slug: String!) {
+  user(slug: $slug) {
+    id
+    slug
+    title
+    description
+    image
+  }
+}
