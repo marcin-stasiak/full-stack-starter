@@ -17,13 +17,13 @@ export class UsersResolver {
     return this.usersService.create(createUserInput);
   }
 
-  @Query(() => [User], { name: 'users' })
-  public findAll() {
+  @Query(() => [User])
+  public getUsers() {
     return this.usersService.findAll();
   }
 
-  @Query(() => User, { name: 'user' })
-  public findOne(@Args('slug', { type: () => String }) slug: string) {
+  @Query(() => User)
+  public getUser(@Args('slug', { type: () => String }) slug: string) {
     return this.usersService.findOneBySlug(slug);
   }
 

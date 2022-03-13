@@ -1,5 +1,5 @@
-query entry($slug: String!) {
-  entry(slug: $slug) {
+query getEntry($slug: String!) {
+  getEntry(slug: $slug) {
     id
     slug
     title

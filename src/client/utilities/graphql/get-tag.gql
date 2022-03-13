@@ -1,5 +1,5 @@
-query tag($slug: String!) {
-  tag(slug: $slug) {
+query getTag($slug: String!) {
+  getTag(slug: $slug) {
     id
     slug
     title

@@ -1,5 +1,5 @@
-query user($slug: String!) {
-  user(slug: $slug) {
+query getUser($slug: String!) {
+  getUser(slug: $slug) {
     id
     slug
     title

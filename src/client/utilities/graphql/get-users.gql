@@ -1,5 +1,5 @@
 query {
-  users {
+  getUsers {
     id
     slug
     title

@@ -1,5 +1,5 @@
 query {
-  entries {
+  getEntries {
     id
     slug
     title

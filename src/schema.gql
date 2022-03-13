@@ -52,14 +52,14 @@ type Category {
 
 type Query {
   config: AppConfigType!
-  categories: [Category!]!
-  category(slug: String!): Category!
-  entries: [Entry!]!
-  entry(slug: String!): Entry!
-  tags: [Tag!]!
-  tag(slug: String!): Tag!
-  users: [User!]!
-  user(slug: String!): User!
+  getCategories: [Category!]!
+  getCategory(slug: String!): Category!
+  getEntries: [Entry!]!
+  getEntry(slug: String!): Entry!
+  getTags: [Tag!]!
+  getTag(slug: String!): Tag!
+  getUsers: [User!]!
+  getUser(slug: String!): User!
 }
 
 type Mutation {

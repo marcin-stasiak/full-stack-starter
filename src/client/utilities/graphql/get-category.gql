@@ -1,5 +1,5 @@
-query category($slug: String!) {
-  category(slug: $slug) {
+query getCategory($slug: String!) {
+  getCategory(slug: $slug) {
     id
     slug
     title

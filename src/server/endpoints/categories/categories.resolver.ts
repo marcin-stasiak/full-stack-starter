@@ -14,13 +14,13 @@ export class CategoriesResolver {
     return this.categoriesService.create(createCategoryInput);
   }
 
-  @Query(() => [Category], { name: 'categories' })
-  public findAll() {
+  @Query(() => [Category])
+  public getCategories() {
     return this.categoriesService.findAll();
   }
 
-  @Query(() => Category, { name: 'category' })
-  public findOne(@Args('slug', { type: () => String }) slug: string) {
+  @Query(() => Category)
+  public getCategory(@Args('slug', { type: () => String }) slug: string) {
     return this.categoriesService.findOneBySlug(slug);
   }
 

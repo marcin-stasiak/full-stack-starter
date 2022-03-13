@@ -10,27 +10,27 @@ export class EntriesResolver {
   constructor(private readonly entriesService: EntriesService) {}
 
   @Mutation(() => Entry)
-  createEntry(@Args('createEntryInput') createEntryInput: CreateEntryInput) {
+  public createEntry(@Args('createEntryInput') createEntryInput: CreateEntryInput) {
     return this.entriesService.create(createEntryInput);
   }
 
-  @Query(() => [Entry], { name: 'entries' })
-  findAll() {
+  @Query(() => [Entry])
+  public getEntries() {
     return this.entriesService.findAll();
   }
 
-  @Query(() => Entry, { name: 'entry' })
-  findOne(@Args('slug', { type: () => String }) slug: string) {
+  @Query(() => Entry)
+  public getEntry(@Args('slug', { type: () => String }) slug: string) {
     return this.entriesService.findOneBySlug(slug);
   }
 
   @Mutation(() => Entry)
-  updateEntry(@Args('updateEntryInput') updateEntryInput: UpdateEntryInput) {
+  public updateEntry(@Args('updateEntryInput') updateEntryInput: UpdateEntryInput) {
     return this.entriesService.update(updateEntryInput);
   }
 
   @Mutation(() => Entry)
-  removeEntry(@Args('id', { type: () => String }) id: string) {
+  public removeEntry(@Args('id', { type: () => String }) id: string) {
     return this.entriesService.remove(id);
   }
 }
