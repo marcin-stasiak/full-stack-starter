@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 
-const Tag: NextPage = () => {
+const AdminTags: NextPage = () => {
   return (
     <>
       <h1>Tag</h1>
@@ -8,4 +8,4 @@ const Tag: NextPage = () => {
   );
 };
 
-export default Tag;
+export default AdminTags;
