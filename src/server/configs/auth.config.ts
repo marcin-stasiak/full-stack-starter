@@ -1,5 +1,5 @@
 import { registerAs } from '@nestjs/config';
 
 export default registerAs('auth', () => ({
-  name: process.env.APP_NAME || 'Starter',
+  secret: process.env.APP_SECRET || 'secret',
 }));
