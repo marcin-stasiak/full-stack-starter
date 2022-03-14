@@ -10,7 +10,7 @@ export class DefaultEndpointEntity extends BaseEntity {
 
   @Field(() => String)
   @Column({ unique: true, length: 120 })
-  public slug: string;
+  public slug?: string;
 
   @Field(() => String)
   @Column({ length: 254 })
@@ -21,6 +21,6 @@ export class DefaultEndpointEntity extends BaseEntity {
   public description: string;
 
   @Field(() => String)
-  @Column({ length: 254 })
-  public image: string;
+  @Column({ length: 254, nullable: true })
+  public image?: string;
 }

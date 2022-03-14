@@ -12,5 +12,5 @@ export class DefaultEndpointInput {
   public description: string;
 
   @Field(() => String, { nullable: true })
-  public image: string;
+  public image?: string;
 }
