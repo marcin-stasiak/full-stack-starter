@@ -10,7 +10,7 @@ import { LoginInput } from './interfaces/login.input';
 export class AuthService {
   constructor(private readonly usersService: UsersService, private readonly jwtService: JwtService) {}
 
-  public async validate(payload: any): Promise<any> {
+  public async validateUser(payload: any): Promise<any> {
     const user = this.usersService.findOneByEmail(payload.email);
 
     // user.password
