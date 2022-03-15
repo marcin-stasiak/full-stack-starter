@@ -1,6 +1,8 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, BeforeUpdate, Column, PrimaryGeneratedColumn } from 'typeorm';
+
+import slugify from 'slugify';
 
 @ObjectType()
 export class DefaultEndpointEntity extends BaseEntity {
@@ -10,7 +12,7 @@ export class DefaultEndpointEntity extends BaseEntity {
 
   @Field(() => String)
   @Column({ unique: true, length: 120 })
-  public slug?: string;
+  public slug: string;
 
   @Field(() => String)
   @Column({ length: 254 })
@@ -21,6 +23,11 @@ export class DefaultEndpointEntity extends BaseEntity {
   public description: string;
 
   @Field(() => String)
-  @Column({ length: 254, nullable: true })
+  @Column({ length: 254, default: '' })
   public image?: string;
+
+  @BeforeUpdate()
+  private createSlug() {
+    this.slug = slugify(this.title);
+  }
 }

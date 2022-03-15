@@ -18,7 +18,11 @@ export enum UserRole {
 @Entity('users')
 export class User extends DefaultEndpointEntity {
   @Field(() => String)
-  @Column({ length: 254, select: false })
+  @Column({ length: 32, unique: true })
+  public username: string;
+
+  @Field(() => String)
+  @Column({ length: 254, unique: true, select: false })
   public email: string;
 
   @Field(() => String)
@@ -33,13 +37,10 @@ export class User extends DefaultEndpointEntity {
   @OneToMany(() => Entry, (entry) => entry.author)
   public entries: Entry[];
 
-  @BeforeInsert()
   @BeforeUpdate()
-  async hashPassword() {
+  private async hashPassword() {
     if (this.password) {
-      console.log(this.password);
-      this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(12));
-      console.log(this.password);
+      this.password = await bcrypt.hashSync(this.password, bcrypt.genSaltSync(12));
     }
   }
 }

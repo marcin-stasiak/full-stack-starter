@@ -13,14 +13,14 @@ import { RegisterInput } from './interfaces/register.input';
 export class AuthResolver {
   constructor(private authService: AuthService) {}
 
-  @Mutation(() => LoginResponse)
+  @Mutation(() => User)
   @UseGuards(AuthGuard)
-  public login(@Args('loginUserInput') loginInput: LoginInput) {
+  public login(@Args('loginInput') loginInput: LoginInput) {
     return this.authService.login(loginInput);
   }
 
   @Mutation(() => User)
-  public register(@Args('signupUserInput') registerInput: RegisterInput) {
+  public register(@Args('registerInput') registerInput: RegisterInput) {
     return this.authService.register(registerInput);
   }
 }

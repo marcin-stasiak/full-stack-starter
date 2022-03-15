@@ -44,15 +44,12 @@ export class AuthService {
       throw new Error('User already exists');
     }
 
-    const password = await bcrypt.hash(registerInput.password, 12);
-
     // TODO: Add correct variables
     return this.usersService.create({
-      slug: registerInput.email,
       title: registerInput.email,
       description: registerInput.email,
+      image: '',
       ...registerInput,
-      password,
     });
   }
 }

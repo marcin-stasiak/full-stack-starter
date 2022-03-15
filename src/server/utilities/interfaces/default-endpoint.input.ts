@@ -1,13 +1,17 @@
 import { Field, InputType } from '@nestjs/graphql';
 
+import { IsDefined } from 'class-validator';
+
 @InputType()
 export class DefaultEndpointInput {
   @Field(() => String, { nullable: true })
-  public slug: string;
+  public slug?: string;
 
+  @IsDefined()
   @Field(() => String)
   public title: string;
 
+  @IsDefined()
   @Field(() => String)
   public description: string;
 

@@ -23,6 +23,7 @@ type User {
   title: String!
   description: String!
   image: String!
+  username: String!
   email: String!
   password: String!
   role: String!
@@ -75,6 +76,8 @@ type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: String!): User!
+  login(loginInput: LoginInput!): User!
+  register(registerInput: RegisterInput!): User!
 }
 
 input CreateCategoryInput {
@@ -129,6 +132,7 @@ input CreateUserInput {
   title: String!
   description: String!
   image: String
+  username: String!
   email: String!
   password: String!
 }
@@ -138,8 +142,20 @@ input UpdateUserInput {
   title: String
   description: String
   image: String
+  username: String
   email: String
   password: String
   id: String!
   role: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input RegisterInput {
+  username: String!
+  email: String!
+  password: String!
 }
