@@ -1,5 +1,6 @@
 import { SetMetadata } from '@nestjs/common';
-import { UserRole} from "../../../endpoints/users/entities/user.entity";
+
+import { UserRole } from '../../../endpoints/users/entities/user.entity';
 
 export const ROLES_KEY = 'roles';
 export const Roles = (...roles: UserRole[]) => SetMetadata(ROLES_KEY, roles);

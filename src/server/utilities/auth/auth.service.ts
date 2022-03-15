@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
+import bcrypt from 'bcrypt';
+
 import { UsersService } from '../../endpoints/users/users.service';
 import { LoginInput } from './interfaces/login.input';
-import { RegisterInput } from "./interfaces/register.input";
-
-import bcrypt from 'bcrypt';
+import { RegisterInput } from './interfaces/register.input';
 
 @Injectable()
 export class AuthService {
@@ -53,6 +53,6 @@ export class AuthService {
       description: registerInput.email,
       ...registerInput,
       password,
-    })
+    });
   }
 }
