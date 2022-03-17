@@ -3,17 +3,20 @@ import client from "../../utilities/client";
 import GET_CATEGORIES from "../../utilities/graphql/get-categories.gql";
 import GET_CATEGORY from "../../utilities/graphql/get-category.gql";
 
-const Category: NextPage = () => {
+const Category: NextPage = ({ category }) => {
   return (
     <>
-      <h1>Category</h1>
+      <h1>{category.title}</h1>
     </>
   )
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await client.query({ query: GET_CATEGORIES });
-  return {paths: data.entries.map(({slug}) => slug ), fallback: false}
+
+  const paths = data.getCategories.map((category) => ({ params: {slug: category.slug}}));
+
+  return { paths: paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
@@ -21,7 +24,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
   return {
     props : {
-      entry: data.entry
+      category: data.getCategory
     }
   }
 }

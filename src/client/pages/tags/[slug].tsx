@@ -3,17 +3,20 @@ import client from "../../utilities/client";
 import GET_TAGS from "../../utilities/graphql/get-tags.gql";
 import GET_TAG from "../../utilities/graphql/get-tag.gql";
 
-const Tag: NextPage = () => {
+const Tag: NextPage = ({ tag }) => {
   return (
     <>
-      <h1>Tag</h1>
+      <h1>{tag.title}</h1>
     </>
   )
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await client.query({ query: GET_TAGS });
-  return {paths: data.tags.map(({slug}) => slug ), fallback: false}
+
+  const paths = data.getTags.map((tag) => ({ params: {slug: tag.slug}}));
+
+  return { paths: paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
@@ -21,7 +24,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
   return {
     props : {
-      entry: data.tag
+      tags: data.getTag
     }
   }
 }

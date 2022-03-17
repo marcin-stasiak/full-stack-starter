@@ -3,17 +3,20 @@ import client from "../../utilities/client";
 import GET_USERS from "../../utilities/graphql/get-users.gql";
 import GET_USER from "../../utilities/graphql/get-user.gql";
 
-const User: NextPage = () => {
+const User: NextPage = ({ user }) => {
   return (
     <>
-      <h1>User</h1>
+      <h1>{user.title}</h1>
     </>
   )
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await client.query({ query: GET_USERS });
-  return {paths: data.users.map(({slug}) => slug ), fallback: false}
+
+  const paths = data.getUsers.map((user) => ({ params: {slug: user.slug}}));
+
+  return { paths: paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
@@ -21,7 +24,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
   return {
     props : {
-      entry: data.user
+      user: data.getUser
     }
   }
 }

@@ -3,17 +3,20 @@ import client from "../utilities/client";
 import GET_ENTRIES from "../utilities/graphql/get-entries.gql";
 import GET_ENTRY from "../utilities/graphql/get-entry.gql";
 
-const Entry: NextPage = () => {
+const Entry: NextPage = ({ entry }) => {
   return (
     <>
-      <h1>Entry</h1>
+      <h1>{entry.title}</h1>
     </>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await client.query({ query: GET_ENTRIES });
-  return {paths: data.entries.map(({slug}) => slug ), fallback: false}
+
+  const paths = data.getEntries.map((entry) => ({ params: {slug: entry.slug}}));
+
+  return { paths: paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
@@ -21,7 +24,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
   return {
     props : {
-      entry: data.entry
+      entry: data.getEntry
     }
   }
 }

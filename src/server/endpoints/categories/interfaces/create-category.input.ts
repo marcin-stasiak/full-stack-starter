@@ -1,6 +1,6 @@
 import { InputType } from '@nestjs/graphql';
 
-import { DefaultEndpointInput } from '../../../utilities/interfaces/default-endpoint.input';
+import { EndpointInput } from '../../../utilities/interfaces/endpoint.input';
 
 @InputType()
-export class CreateCategoryInput extends DefaultEndpointInput {}
+export class CreateCategoryInput extends EndpointInput {}

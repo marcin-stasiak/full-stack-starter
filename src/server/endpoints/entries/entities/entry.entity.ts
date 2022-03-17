@@ -2,14 +2,14 @@ import { Field, ObjectType } from '@nestjs/graphql';
 
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne } from 'typeorm';
 
-import { DefaultEndpointEntity } from '../../../utilities/entities/default-endpoint.entity';
+import { EndpointEntity } from '../../../utilities/entities/endpoint.entity';
 import { Category } from '../../categories/entities/category.entity';
 import { Tag } from '../../tags/entities/tag.entity';
 import { User } from '../../users/entities/user.entity';
 
 @ObjectType()
 @Entity('entries')
-export class Entry extends DefaultEndpointEntity {
+export class Entry extends EndpointEntity {
   @Field(() => String)
   @Column({ type: 'text' })
   public content: string;

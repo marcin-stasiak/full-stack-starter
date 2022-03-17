@@ -2,7 +2,7 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type AppConfigType {
+type AppInterface {
   language: String!
   name: String!
   description: String!
@@ -52,7 +52,7 @@ type Category {
 }
 
 type Query {
-  config: AppConfigType!
+  config: AppInterface!
   getCategories: [Category!]!
   getCategory(slug: String!): Category!
   getEntries: [Entry!]!

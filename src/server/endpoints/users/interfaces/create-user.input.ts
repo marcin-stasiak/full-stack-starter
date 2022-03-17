@@ -2,10 +2,10 @@ import { Field, InputType } from '@nestjs/graphql';
 
 import { IsDefined, IsEmail, Matches, MaxLength, MinLength } from 'class-validator';
 
-import { DefaultEndpointInput } from '../../../utilities/interfaces/default-endpoint.input';
+import { EndpointInput } from '../../../utilities/interfaces/endpoint.input';
 
 @InputType()
-export class CreateUserInput extends DefaultEndpointInput {
+export class CreateUserInput extends EndpointInput {
   @IsDefined()
   @MinLength(3)
   @MaxLength(32)

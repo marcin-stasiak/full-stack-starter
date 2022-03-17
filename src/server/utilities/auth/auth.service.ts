@@ -44,11 +44,10 @@ export class AuthService {
       throw new Error('User already exists');
     }
 
-    // TODO: Add correct variables
     return this.usersService.create({
-      title: registerInput.email,
-      description: registerInput.email,
-      image: '',
+      slug: registerInput.username,
+      title: registerInput.username,
+      description: registerInput.username,
       ...registerInput,
     });
   }

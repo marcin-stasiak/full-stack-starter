@@ -1,11 +1,11 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { BaseEntity, BeforeUpdate, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, BeforeInsert, BeforeUpdate, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 import slugify from 'slugify';
 
 @ObjectType()
-export class DefaultEndpointEntity extends BaseEntity {
+export class EndpointEntity extends BaseEntity {
   @Field(() => String)
   @PrimaryGeneratedColumn('uuid')
   public id: string;
@@ -26,8 +26,11 @@ export class DefaultEndpointEntity extends BaseEntity {
   @Column({ length: 254, default: '' })
   public image?: string;
 
+  @BeforeInsert()
   @BeforeUpdate()
   private createSlug() {
-    this.slug = slugify(this.title);
+    if (this.slug === '') {
+      this.slug = slugify(this.title, { lower: true });
+    }
   }
 }

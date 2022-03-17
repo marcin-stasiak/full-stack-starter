@@ -3,7 +3,7 @@ import { Field, InputType } from '@nestjs/graphql';
 import { IsDefined } from 'class-validator';
 
 @InputType()
-export class DefaultEndpointInput {
+export class EndpointInput {
   @Field(() => String, { nullable: true })
   public slug?: string;
 

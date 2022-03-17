@@ -1,7 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
-export class AppConfigType {
+export class AppInterface {
   @Field(() => String)
   public language: string;
 

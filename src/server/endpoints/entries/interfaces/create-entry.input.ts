@@ -1,9 +1,9 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 
-import { DefaultEndpointInput } from '../../../utilities/interfaces/default-endpoint.input';
+import { EndpointInput } from '../../../utilities/interfaces/endpoint.input';
 
 @InputType()
-export class CreateEntryInput extends DefaultEndpointInput {
+export class CreateEntryInput extends EndpointInput {
   @Field(() => String)
   public content: string;
 }

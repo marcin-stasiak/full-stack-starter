@@ -21,11 +21,9 @@ const Home: NextPage = ({ entries }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client.query({ query: GET_ENTRIES });
 
-  console.log(data)
-
   return {
     props : {
-      entries: data.entries
+      entries: data.getEntries
     }
   }
 }

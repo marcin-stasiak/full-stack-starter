@@ -3,8 +3,9 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
 
 import * as bcrypt from 'bcrypt';
+import { Exclude } from 'class-transformer';
 
-import { DefaultEndpointEntity } from '../../../utilities/entities/default-endpoint.entity';
+import { EndpointEntity } from '../../../utilities/entities/endpoint.entity';
 import { Entry } from '../../entries/entities/entry.entity';
 
 export enum UserRole {
@@ -16,7 +17,7 @@ export enum UserRole {
 
 @ObjectType()
 @Entity('users')
-export class User extends DefaultEndpointEntity {
+export class User extends EndpointEntity {
   @Field(() => String)
   @Column({ length: 32, unique: true })
   public username: string;
@@ -26,7 +27,7 @@ export class User extends DefaultEndpointEntity {
   public email: string;
 
   @Field(() => String)
-  @Column({ type: 'bytea', select: false })
+  @Column({ length: 64, select: false })
   public password: string;
 
   @Field(() => String)
@@ -37,10 +38,9 @@ export class User extends DefaultEndpointEntity {
   @OneToMany(() => Entry, (entry) => entry.author)
   public entries: Entry[];
 
+  @BeforeInsert()
   @BeforeUpdate()
-  private async hashPassword() {
-    if (this.password) {
-      this.password = await bcrypt.hashSync(this.password, bcrypt.genSaltSync(12));
-    }
+  private hashPassword() {
+    this.password = bcrypt.hashSync(this.password, 12);
   }
 }
