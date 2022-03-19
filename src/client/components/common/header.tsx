@@ -1,9 +1,9 @@
-const CommonHeader = () => {
+const Header = () => {
   return (
-    <header>
-      <nav>HEADER</nav>
-    </header>
+    <div>
+      <h1>HEADER</h1>
+    </div>
   )
 }
 
-export default CommonHeader;
+export default Header;

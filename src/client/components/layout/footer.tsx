@@ -1,4 +1,4 @@
-const CommonFooter = () => {
+const LayoutFooter = () => {
   return (
     <footer>
       <nav>FOOTER</nav>
@@ -6,4 +6,4 @@ const CommonFooter = () => {
   )
 }
 
-export default CommonFooter;
+export default LayoutFooter;
