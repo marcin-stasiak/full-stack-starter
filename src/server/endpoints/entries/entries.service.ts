@@ -22,21 +22,25 @@ export class EntriesService {
     return await this.entryRepository.find();
   }
 
-  public async findOneById(id: string): Promise<Entry> {
+  public async findOneById(id: string): Promise<Entry | undefined> {
     return await this.entryRepository.findOne(id);
   }
 
-  public async findOneBySlug(slug: string): Promise<Entry> {
+  public async findOneBySlug(slug: string): Promise<Entry | undefined> {
     return await this.entryRepository.findOne({ where: { slug: slug } });
   }
 
-  public async update(updateEntryInput: UpdateEntryInput) {
+  public async update(updateEntryInput: UpdateEntryInput): Promise<Entry | undefined> {
     const found = await this.entryRepository.findOne(updateEntryInput.id);
-    return await this.entryRepository.save({ ...found, ...updateEntryInput });
+
+    if (found) {
+      return await this.entryRepository.save({ ...found, ...updateEntryInput });
+    }
   }
 
-  public async remove(id: string): Promise<Entry> {
+  public async remove(id: string): Promise<Entry | undefined> {
     const found = await this.entryRepository.findOne(id);
+
     if (found) {
       return await this.entryRepository.remove(found);
     }

@@ -22,20 +22,23 @@ export class TagsService {
     return await this.tagRepository.find();
   }
 
-  public async findOneById(id: string): Promise<Tag> {
+  public async findOneById(id: string): Promise<Tag | undefined> {
     return await this.tagRepository.findOne({ where: { id: id } });
   }
 
-  public async findOneBySlug(slug: string): Promise<Tag> {
+  public async findOneBySlug(slug: string): Promise<Tag | undefined> {
     return await this.tagRepository.findOne({ where: { slug: slug } });
   }
 
-  public async update(updateTagInput: UpdateTagInput) {
+  public async update(updateTagInput: UpdateTagInput): Promise<Tag | undefined> {
     const found = await this.tagRepository.findOne(updateTagInput.id);
-    return await this.tagRepository.save({ ...found, ...updateTagInput });
+
+    if (found) {
+      return await this.tagRepository.save({ ...found, ...updateTagInput });
+    }
   }
 
-  public async remove(id: string): Promise<Tag> {
+  public async remove(id: string): Promise<Tag | undefined> {
     const found = await this.tagRepository.findOne(id);
 
     if (found) {

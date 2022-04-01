@@ -24,25 +24,29 @@ export class UsersService {
     return await this.userRepository.find();
   }
 
-  public async findOneById(id: string): Promise<User> {
+  public async findOneById(id: string): Promise<User | undefined> {
     return await this.userRepository.findOne({ where: { id: id } });
   }
 
-  public async findOneBySlug(slug: string): Promise<User> {
+  public async findOneBySlug(slug: string): Promise<User | undefined> {
     return await this.userRepository.findOne({ where: { slug: slug } });
   }
 
-  public async findOneByEmail(email: string): Promise<User> {
+  public async findOneByEmail(email: string): Promise<User | undefined> {
     return await this.userRepository.findOne({ where: { email: email } });
   }
 
-  public async update(updateUserInput: UpdateUserInput): Promise<User> {
+  public async update(updateUserInput: UpdateUserInput): Promise<User | undefined> {
     const found = this.userRepository.findOne(updateUserInput.id);
-    return await this.userRepository.save({ ...found, ...updateUserInput });
+
+    if (found) {
+      return await this.userRepository.save({ ...found, ...updateUserInput });
+    }
   }
 
-  public async remove(id: string): Promise<User> {
+  public async remove(id: string): Promise<User | undefined> {
     const found = await this.userRepository.findOne(id);
+
     if (found) {
       return await this.userRepository.remove(found);
     }

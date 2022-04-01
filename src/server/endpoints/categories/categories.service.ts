@@ -22,21 +22,25 @@ export class CategoriesService {
     return await this.categoryRepository.find();
   }
 
-  public async findOneById(id: string): Promise<Category> {
+  public async findOneById(id: string): Promise<Category | undefined> {
     return await this.categoryRepository.findOne({ where: { id: id } });
   }
 
-  public async findOneBySlug(slug: string): Promise<Category> {
+  public async findOneBySlug(slug: string): Promise<Category | undefined> {
     return await this.categoryRepository.findOne({ where: { slug: slug } });
   }
 
-  public async update(updateCategoryInput: UpdateCategoryInput) {
+  public async update(updateCategoryInput: UpdateCategoryInput): Promise<Category | undefined> {
     const found = await this.categoryRepository.findOne(updateCategoryInput.id);
-    return await this.categoryRepository.save({ ...found, ...updateCategoryInput });
+
+    if (found) {
+      return await this.categoryRepository.save({ ...found, ...updateCategoryInput });
+    }
   }
 
-  public async remove(id: string): Promise<Category> {
+  public async remove(id: string): Promise<Category | undefined> {
     const found = await this.categoryRepository.findOne(id);
+
     if (found) {
       return await this.categoryRepository.remove(found);
     }
