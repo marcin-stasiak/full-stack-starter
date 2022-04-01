@@ -1,7 +1,10 @@
 import { registerAs } from '@nestjs/config';
 
+import appPackage from '../../../package.json';
+
 export default registerAs('app', () => ({
   language: process.env.APP_LANGUAGE || 'en',
-  name: process.env.APP_NAME || 'Full Stack Starter',
-  description: 'NestJS, TypeORM, NextJS, TailwindCSS',
+  name: appPackage.name,
+  description: appPackage.description,
+  version: appPackage.version,
 }));

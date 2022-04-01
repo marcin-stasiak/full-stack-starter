@@ -37,6 +37,7 @@ export class TagsService {
 
   public async remove(id: string): Promise<Tag> {
     const found = await this.tagRepository.findOne(id);
+
     if (found) {
       return await this.tagRepository.remove(found);
     }
