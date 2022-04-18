@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config';
 
-import appPackage from '../../../package.json';
+import * as appPackage from '../../../package.json';
 
 export default registerAs('app', () => ({
   language: process.env.APP_LANGUAGE || 'en',
